@@ -36,6 +36,9 @@ abstract class AbstractParser implements ParserInterface
      * @var array
      */
     protected $config = [];
+    protected $cacheFilename = '';
+    protected $inputFilename = '';
+    protected $outputFilename = '';
 
     /**
      * @var \TYPO3\CMS\Extbase\SignalSlot\Dispatcher
@@ -57,7 +60,7 @@ abstract class AbstractParser implements ParserInterface
      */
     protected function initEmConfiguration()
     {
-        $this->config = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dyncss']);
+        $this->config = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['dyncss'] ?? [];
     }
 
     /**
